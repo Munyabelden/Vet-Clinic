@@ -24,8 +24,6 @@
 
 # 📖 [your_project_name] <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
 **Vet Clinic** is a a database that stores data about animals like name, date of birth and weight.
 
 ## 🛠 Built With <a name="built-with"></a>
