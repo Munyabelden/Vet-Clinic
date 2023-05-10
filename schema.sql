@@ -12,4 +12,21 @@ CREATE TABLE animals (
 
 ALTER TABLE animals ADD COLUMN species VARCHAR(50);
 
+CREATE TABLE owners (
+  id SERIAL PRIMARY KEY, 
+  full_name VARCHAR(255), 
+  age INTEGER
+);
+
+CREATE TABLE specis (
+  id SERIAL PRIMARY KEY, 
+  name VARCHAR(50),
+);
+
+ALTER TABLE vet_clinic
+DROP COLUMN species;
+
+ALTER TABLE vet_clinic
+ADD COLUMN species_id INTEGER REFERENCES species(id),
+ADD COLUMN owner_id INTEGER REFERENCES owners(id);
 
