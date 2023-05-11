@@ -116,3 +116,40 @@ SET owners_id = CASE
   ELSE owners_id
 END
 WHERE name IN ('Boarmon', 'Angemon');
+
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES
+  ('William Tatcher', 45, '23 April 2000'),
+  ('Maisy Smith', 26, '17 Jan 2019'),
+  ('Stephanie Mendez', 64, '4 May 1981'),
+  ('Jack Harkness', 38, 'June 18, 2008');
+
+INSERT INTO specializations (vet_id, species_id)
+VALUES
+   (1, 2),
+   (3, 1),
+   (3, 2),
+   (4, 1);
+
+INSERT INTO visits (vets_id, animal_id, date_of_visit)
+ VALUES
+   (1, 1, '24 May 2020'),
+   (3, 1, '22 Jul 2020'),
+   (4, 2, '2 Feb 2021'),
+   (2, 3, '5 Jan 2020'),
+   (2, 3, '8 Mar 2020'),
+   (2, 3, '14 May 2020'),
+   (3, 4, '4 May 2021'),
+   (4, 5, '24 Feb 2021'),
+   (2, 6, '21 Dec 2019'),
+   (1, 6, '10 Aug 2020'),
+   (2, 6, '7 April 2021'),
+   (3, 7, '29 Sep 2019'),
+   (4, 8, '3 Oct 2020'),
+   (4, 8, '4 Nov 2020'),
+   (2, 9, '24 Jan 2019'),
+   (2, 9, '15 May 2019'),
+   (2, 9, '27 Feb 2020'),
+   (2, 9, '7 Aug 2020'),
+   (3, 10, '24 May 2020'),
+   (1, 10, '11 Jan 2021');

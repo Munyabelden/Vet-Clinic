@@ -29,3 +29,91 @@ SELECT s.name as species_name, COUNT(*) as num_animals FROM animals a JOIN speci
 SELECT a.name as digimon_name FROM owners o JOIN animals a ON o.id = a.owners_id WHERE o.full_name = 'Jennifer Orwell' AND a.species_id = 1;
 SELECT a.name as animal_name FROM owners o JOIN animals a ON o.id = a.owners_id WHERE o.full_name = 'Dean Winchester' AND a.escape_attemps = 0;
 SELECT o.full_name, COUNT(*) as num_animals FROM animals a JOIN owners o ON a.owners_id = o.id GROUP BY a.owners_id, o.full_name ORDER BY num_animals DESC LIMIT 1;
+
+SELECT species_id, COUNT(*) AS visit_count
+FROM visits
+JOIN animals ON visits.animal_id = animals.id
+WHERE visits.vets_id = 2
+GROUP BY species_id
+ORDER BY visit_count DESC
+LIMIT 1;
+
+SELECT a.name AS animal_name, v.date_of_visit
+FROM visits v
+JOIN animals a ON v.animal_id = a.id
+WHERE v.vets_id = 1
+ORDER BY v.date_of_visit DESC
+LIMIT 1;
+
+SELECT COUNT(DISTINCT animal_id) AS num_animals
+FROM visits
+JOIN vets ON visits.vets_id = vets.id
+JOIN animals ON visits.animal_id = animals.id
+WHERE vets.name = 'Stephanie Mendez';
+
+SELECT vets.name, species.name AS specialty
+FROM vets
+LEFT JOIN specializations ON vets.id = specializations.vet_id
+LEFT JOIN species ON specializations.species_id = species.id
+ORDER BY vets.name;
+
+SELECT animals.name, animals.date_of_birth, animals.neutered, animals.weight_kg
+FROM visits
+JOIN vets ON visits.vets_id = vets.id
+JOIN animals ON visits.animal_id = animals.id
+WHERE vets.name = 'Stephanie Mendez'
+AND visits.date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
+
+SELECT animals.*, num_visits
+ FROM animals
+ JOIN (
+   SELECT animal_id, COUNT(*) as num_visits
+   FROM visits
+   GROUP BY animal_id
+   ORDER BY num_visits DESC
+   LIMIT 1
+ ) AS visits_count
+ ON animals.id = visits_count.animal_id;
+
+SELECT animals.name AS animal_name, visits.date_of_visit
+FROM visits
+JOIN animals ON visits.animal_id = animals.id
+WHERE visits.vets_id = 2
+ORDER BY visits.date_of_visit ASC
+LIMIT 1;
+
+SELECT animals.name AS animal_name, vets.name AS vet_name, visits.date_of_visit
+FROM visits
+JOIN animals ON visits.animal_id = animals.id
+JOIN vets ON visits.vets_id = vets.id
+ORDER BY visits.date_of_visit DESC
+LIMIT 1;
+
+SELECT species.name, COUNT(*) AS visit_count
+FROM visits
+JOIN animals ON visits.animal_id = animals.id
+JOIN species ON animals.species_id = species.id
+WHERE visits.vets_id = 2
+GROUP BY species.id, species.name
+ORDER BY visit_count DESC
+LIMIT 1;
+
+SELECT vets.name, species.name AS specialty
+FROM vets
+LEFT JOIN specializations ON vets.id = specializations.vet_id
+LEFT JOIN species ON specializations.species_id = species.id
+ORDER BY vets.name;
+
+SELECT animals.name, animals.date_of_birth, animals.neutered, animals.weight_kg
+FROM visits
+JOIN vets ON visits.vets_id = vets.id
+JOIN animals ON visits.animal_id = animals.id
+WHERE vets.name = 'Stephanie Mendez'
+AND visits.date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
+
+SELECT COUNT(*) AS num_visits
+FROM visits
+JOIN animals ON visits.animal_id = animals.id
+JOIN vets ON visits.vets_id = vets.id
+LEFT JOIN specializations ON vets.id = specializations.vet_id AND animals.species_id = specializations.species_id
+WHERE specializations.vet_id IS NULL;
