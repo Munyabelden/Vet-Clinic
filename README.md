@@ -26,6 +26,9 @@
 
 **Vet Clinic** is a a database that stores data about animals like name, date of birth and weight.
 
+Here is a diagram showcase of the database:
+<img src="./assets/drawSQL-vet-clinis-export-2023-05-16.png" alt="Vet Clinic Diagram">
+
 ## 🛠 Built With <a name="built-with"></a>
 
 - [ ] SQL
