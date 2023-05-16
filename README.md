@@ -88,6 +88,12 @@ You can deploy this project using:
 - GitHub: [@githubhandle](https://github.com/Munyabelden/)
 - Twitter: [@twitterhandle](https://twitter.com/munyaradzi045)
 
+👤 **Santosh Konappanavar**
+
+- GitHub: [@Santosh-Konappanavar](https://github.com/Santosh-Konappanavar)
+- Twitter: [@SantoshKonapp1](https://twitter.com/SantoshKonappa1)
+- LinkedIn: [@Santosh Konappanavar](https://www.linkedin.com/in/santosh-konappanavar/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
